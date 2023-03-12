@@ -1,0 +1,23 @@
+{
+    "name": "hansen/flux-php",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FluxPHP\\Source\\": "src/",
+            "FluxPHP\\App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "HansenKhii",
+            "email": "hansenkhyx@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^6.2",
+        "symfony/console": "^6.2",
+        "vlucas/phpdotenv": "^5.5",
+        "symfony/http-client": "^6.2"
+    }
+}
