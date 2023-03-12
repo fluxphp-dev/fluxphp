@@ -1,5 +1,6 @@
 {
     "name": "hansen/flux-php",
+    "version": "1.0.0",
     "type": "project",
     "license": "MIT",
     "autoload": {
