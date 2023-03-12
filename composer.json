@@ -1,5 +1,5 @@
 {
-    "name": "hansen/flux-php",
+    "name": "fluxphp/fluxphp",
     "type": "project",
     "license": "MIT",
     "autoload": {
