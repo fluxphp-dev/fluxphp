@@ -4,7 +4,7 @@
  * Functions
  */
 
-
+use FluxPHP\Source\View\FluxView;
 use FluxPHP\Source\View\Render;
 
 if (!function_exists("view")) {

@@ -40,6 +40,11 @@ class Render
         echo $output;
     }
 
+    public function html(string $html)
+    {
+        return htmlspecialchars($html);
+    }
+
     public function include(string $file)
     {
         $this->__construct($this->dir, $file);

@@ -4,6 +4,7 @@ namespace FluxPHP\Source\Class;
 
 use FluxPHP\Source\CLI\Migrate;
 use FluxPHP\Source\CLI\MigrateDown;
+use FluxPHP\Source\CLI\MigrateForce;
 use FluxPHP\Source\CLI\Start;
 use Symfony\Component\Console\Application;
 

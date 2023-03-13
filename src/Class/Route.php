@@ -2,6 +2,8 @@
 
 namespace FluxPHP\Source\Class;
 
+use FluxPHP\Source\View\Token;
+
 class Route
 {
     protected array $route;
@@ -23,8 +25,29 @@ class Route
         $this->route["POST"][$url] = $callback;
     }
 
+    public function delete($url, $callback)
+    {
+        $url = preg_replace("/{.+}/", "(.+)", $url);
+        $this->route["DELETE"][$url] = $callback;
+    }
+
+    public function put($url, $callback)
+    {
+        $url = preg_replace("/{.+}/", "(.+)", $url);
+        $this->route["PUT"][$url] = $callback;
+    }
+
+    public function patch($url, $callback)
+    {
+        $url = preg_replace("/{.+}/", "(.+)", $url);
+        $this->route["PUT"][$url] = $callback;
+    }
+
     public function run()
     {
+        if (!isset($this->route["POST"])) {
+            $this->route["POST"] = [];
+        }
         $url = $_SERVER["REQUEST_URI"];
         $method = $_SERVER["REQUEST_METHOD"];
 

@@ -23,7 +23,6 @@ trait Model
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } catch (\Exception $e) {
-            // $title = "Unknown Table";
             $message = $e->getMessage();
             $trace = $e->getTraceAsString();
             include_once __DIR__ . "/View/Error.php";
@@ -46,10 +45,20 @@ trait Model
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function query(string $query)
+    public function insert(array $values)
     {
-        $query = str_replace("_", $this->table, $query);
+        $value = implode("' , '", array_values($values));
+        $key = implode(" , ", array_keys($values));
+        $query =  "INSERT INTO {$this->table} ( $key ) VALUES ( '$value' )";
+        return $this->pdo->exec($query);
+    }
 
-        return $this->pdo->prepare($query);
+    public function update(array $values)
+    {
+        foreach ($values as $key => $value) {
+            $query = "UPDATE $this->table SET $key = \"$value\" {$this->query}";
+            $result = $this->pdo->prepare($query);
+            $result->execute();
+        }
     }
 }
